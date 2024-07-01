@@ -22,7 +22,7 @@
             const email = document.getElementById('email').value;
             const token = localStorage.getItem('token');
             const groupid = localStorage.getItem('group');
-            axios.post('http://localhost:3000/chat/addmember', {email: email, groupid: groupid}, {
+            axios.post('http://16.16.248.2:3000/chat/addmember', {email: email, groupid: groupid}, {
                 headers: { Authorization: token }, 
             }).then((response) => {
                 // window.location.href = '../Chatapp/chatapp.html';
