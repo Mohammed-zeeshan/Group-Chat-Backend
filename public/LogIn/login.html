@@ -61,7 +61,7 @@
           password: password,
         };
         axios
-          .post("http://localhost:3000/user/login", myObj)
+          .post("http://16.16.248.2:3000/user/login", myObj)
           .then((response) => {
             if (response.data.message === "User login successful") {
               window.location.href = "../Chatapp/chatapp.html";
