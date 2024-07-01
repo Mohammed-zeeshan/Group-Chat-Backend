@@ -27,7 +27,7 @@
             event.preventDefault();
             const groupname = document.getElementById('name').value;
             const token = localStorage.getItem('token');
-            axios.post('http://localhost:3000/chat/creategroup', {groupname: groupname}, {
+            axios.post('http://16.16.248.2:3000/chat/creategroup', {groupname: groupname}, {
                 headers: { Authorization: token }, 
             }).then((response) => {
                 window.location.href = '../Chatapp/chatapp.html';
