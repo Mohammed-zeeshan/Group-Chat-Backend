@@ -38,7 +38,7 @@
             const msg = document.getElementById('message').value;
             const token = localStorage.getItem('token');
             const id = localStorage.getItem('group');
-            axios.post(`http://localhost:3000/chat/sendmessage/${id}`, {message: msg}, {
+            axios.post(`http://16.16.248.2:3000/chat/sendmessage/${id}`, {message: msg}, {
                 headers: { Authorization: token },
             }).then((response) => {
                 addItem(response.data);
@@ -47,7 +47,7 @@
         window.addEventListener('DOMContentLoaded', async () => {
             try {
                 const token = localStorage.getItem('token');
-                await axios.get('http://localhost:3000/chat/grouplist', {
+                await axios.get('http://16.16.248.2:3000/chat/grouplist', {
                     headers: { Authorization: token },
                 }).then((response) => {
                     const groups = response.data[0].groups;
@@ -61,20 +61,6 @@
                 console.log(err);
             }
         });
-        // setTimeout(async() => {
-        //     try {
-        //         const token = localStorage.getItem('token');
-        //         await axios.get('http://localhost:3000/chat/messages', {
-        //             headers: { Authorization: token },
-        //         }).then((response) => {
-        //             for (let i=0;i<response.data.length;i++) {
-        //                 addItem(response.data[i]);
-        //             }
-        //         })
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // }, 1000)
         async function getmessages(id, admin) {
             try {
                 const token = localStorage.getItem('token');
@@ -84,7 +70,7 @@
                 }
                 localStorage.removeItem('group');
                 localStorage.setItem('group', id);
-                await axios.get(`http://localhost:3000/chat/messages/${id}`, {
+                await axios.get(`http://16.16.248.2:3000/chat/messages/${id}`, {
                     headers: { Authorization: token },
                 }).then((response) => {
                     for (let i=0;i<response.data.length;i++){
